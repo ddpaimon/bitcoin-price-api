@@ -5,3 +5,6 @@ class AppConfig:
     to_ =
     from_ =
     odds =
+    diff =
+    res_file =
+    file_len =
