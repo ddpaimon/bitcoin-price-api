@@ -17,4 +17,5 @@ while True:
                     client,
                     from_=AppConfig.from_,
                     body=prefix+": "+str(new_value)+" | Diff: "+str(diff))
+            time.sleep(1)
     time.sleep(AppConfig.interval)
