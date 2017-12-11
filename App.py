@@ -19,7 +19,7 @@ def write_to_file(value):
             with open(AppConfig.res_file, 'w') as fout:
                 fout.writelines(data[1:])
     with open(AppConfig.res_file, 'a') as file:
-        file.write(str(value))
+        file.write(str(value) + '\n')
 
 
 def send_message(body_message):
