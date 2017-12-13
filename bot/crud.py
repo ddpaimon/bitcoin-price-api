@@ -1,6 +1,6 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, exists, Boolean, Float
-from exchanges.coinapult import Coinapult
+from bot import coin
 
 from bot.config import AppConfig
 from bot import engine, Session, scheduler
@@ -41,7 +41,7 @@ def create_user(chat_id):
     (ret, ) = create_user.session.query(exists().where(User.chat_id == chat_id))
     if not ret[0]:
         user = User(chat_id=chat_id,
-                    value=float(Coinapult().get_current_price()),
+                    value=coin.get_current_value(),
                     overweight=AppConfig.overweight,
                     interval=AppConfig.interval,
                     diff=AppConfig.diff,
